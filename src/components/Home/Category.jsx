@@ -70,7 +70,7 @@ const Category = () => {
 
   ]
   return (
-    <section className='pb-[45px]'>
+    <section className='pb-11'>
       <div className="container">
         <h3 className='sub_head'>Category</h3>
         <div className='mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5'>
