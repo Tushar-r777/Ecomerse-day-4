@@ -13,8 +13,6 @@ const Home = () => {
       <Category/>
       <FlashDeals/>
       <FeaturedProduct/>
-      <Services/>
-      <Footer/>
     </>
   )
 }

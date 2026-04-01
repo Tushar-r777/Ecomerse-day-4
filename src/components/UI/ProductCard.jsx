@@ -5,7 +5,7 @@ import { FaRegHeart, FaStar } from 'react-icons/fa'
 
 const ProductCard = ({head, price, img, discount}) => {
   return (
-    <div className='p-2.5 border border-[#E9E9E9] rounded-2xl flex flex-col h-full'>
+    <div className='p-2.5 border border-[#E9E9E9] rounded-2xl flex flex-col h-full bg-white'>
         <div className='rounded-2xl overflow-hidden relative'>
             <img src={img} alt="product" className='w-full' />
             {discount && (<p className="absolute top-0 left-0 py-1 px-3 bg-badge rounded text-white text-xs">{discount}</p>)}
