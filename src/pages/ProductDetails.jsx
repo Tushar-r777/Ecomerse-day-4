@@ -12,29 +12,30 @@ const ProductDetails = () => {
     setNav1(sliderRef1);
     setNav2(sliderRef2);
   }, []);
+
+  const settingsLarge = {
+    dots: false,
+    slidesToShow: 1,
+    arrows: false,
+  };
+
   return (
     <section>
       <div className="container grid grid-cols-2">
         <div className=''>
           <h4>First Slider</h4>
-      <Slider asNavFor={nav2} ref={slider => (sliderRef1 = slider)}>
+      <Slider {...settingsLarge} asNavFor={nav2} ref={slider => (sliderRef1 = slider)}>
         <div>
-          <h3>1</h3>
+          <img src="/Features-8.png" alt="" />
         </div>
         <div>
-          <h3>2</h3>
+          <h3><img src="/Features-7.png" alt="" /></h3>
         </div>
         <div>
-          <h3>3</h3>
+          <h3><img src="/Features-5.png" alt="" /></h3>
         </div>
         <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
+          <h3><img src="/Features-10.png" alt="" /></h3>
         </div>
       </Slider>
       <h4>Second Slider</h4>
@@ -46,22 +47,16 @@ const ProductDetails = () => {
         focusOnSelect={true}
       >
         <div>
-          <h3>1</h3>
+          <img src="/Features-8.png" alt="" />
         </div>
         <div>
-          <h3>2</h3>
+          <h3><img src="/Features-7.png" alt="" /></h3>
         </div>
         <div>
-          <h3>3</h3>
+          <h3><img src="/Features-5.png" alt="" /></h3>
         </div>
         <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
+          <h3><img src="/Features-10.png" alt="" /></h3>
         </div>
       </Slider>
     </div>
