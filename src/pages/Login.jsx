@@ -18,7 +18,7 @@ const Login = () => {
               Remember me
             </label>
             <Link className="text-sm text-blue-500 hover:underline mb-0.5">Forgot password?</Link>
-            <p className="text-gray-900 mt-4"> Don't have an account? <Link className="text-sm text-blue-500 -200 hover:underline mt-4">Signup</Link></p>
+            <p className="text-gray-900 mt-4"> Don't have an account? <Link className="text-sm text-blue-500 -200 hover:underline mt-4">Registration</Link></p>
           </div>
           <Button>Login</Button>
         </form>
