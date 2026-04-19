@@ -6,13 +6,11 @@ import Shop from './pages/Shop'
 import Registration from './pages/Registration'
 import Login from './pages/Login'
 import ProductDetails from './pages/ProductDetails'
-import Api from './pages/Api'
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/api" element={<Api/>}/> 
         <Route path='/' element={<Layout />}> 
           <Route index element={<Home/>} />
           <Route path="/Shop" element={<Shop/>} />

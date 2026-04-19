@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SelectInput from '../components/UI/Selectinput'
 import ProductCard from '../components/UI/ProductCard'
-import { Link } from 'react-router'
+import { data, Link } from 'react-router'
 const Shop = () => {
+    const[productlist,Setproductlist]=useState([]);
+    const[loading,Setloading]=useState(true);
+    const[error,Seterror]=useState("");
+
+
   const sortoptions=[
     {
     value:"newest_items",
@@ -30,6 +35,24 @@ const Shop = () => {
      title: "Summer T-Shirts",
     },
   ]
+
+  useEffect (()=>{
+    fetch("https://dummyjson.com/products")
+    .then((res)=>res.json())
+    .then((data)=>{
+      console.log(data);
+      Setproductlist(data.products);
+      setTimeout(() => {
+        Setloading(false);
+      }, 1000);
+    }).catch((err)=>{
+        Seterror(err);
+      
+    })
+  },[])
+
+
+
   return (
     <main className='py-12'>
       <div className="container grid grid-cols-12 gap-14">
@@ -59,21 +82,29 @@ const Shop = () => {
             </div>
           </div>
           <div className='grid grid-cols-3 gap-6 mt-6'>
-        <ProductCard head="Headrest Executive Mesh Office Chairset" img="Features-1.png" price="৳10500"/>
-        <ProductCard head="Women fashion dress set" img="Features-2.png" price="৳1000"/>
-        <ProductCard head="Headrest Executive Mesh Office Chairset" img="Features-3.png" price="৳5000"/>
-        <ProductCard head="Headrest Executive Mesh Office Chairset" img="Features-4.png" price="৳1000"/>
-        <ProductCard head="Headrest Executive Mesh Office Chairset" img="Features-5.png" price="৳10500"/>
-        <ProductCard head="Women fashion dress set" img="Features-6.png" price="৳1000"/>
-        <ProductCard head="Headrest Executive Mesh Office Chairset" img="Features-7.png" price="৳5000"/>
-        <ProductCard head="Women black dress and red hat collectio0" img="Features-8.png" price="৳1000"/>
-        <ProductCard head="Headrest Executive Mesh Office Chairset" img="Features-9.png" price="৳10500"/>
-        <ProductCard head="Women fashion dress set" img="Features-10.png" price="৳1000"/>
-        <ProductCard head="Headrest Executive Mesh Office Chairset" img="Features-11.png" price="৳5000"/>
-        <ProductCard head="Women black dress and red hat collectio0" img="Features-12.png" price="৳1000"/>
-        <ProductCard head="Headrest Executive Mesh Office Chairset" img="Features-13.png" price="৳10500"/>
-        <ProductCard head="Women fashion dress set" img="Features-14.png" price="৳1000"/>
-        <ProductCard head="Headrest Executive Mesh Office Chairset" img="Features-15.png" price="৳5000"/>
+              { loading ?(
+                <p>loading...</p>
+              ):(
+                productlist.map((item)=>(
+        <ProductCard key={item.id} head="Headrest Executive Mesh Office Chairset" img={item.thumbnail} price="৳10500" />
+        // <ProductCard key={item.id} data={item} head="Women fashion dress set" img="Features-2.png" price="৳1000" />
+        // <ProductCard key={item.id} data={item} head="Headrest Executive Mesh Office Chairset" img="Features-3.png" price="৳5000" />
+        // <ProductCard key={item.id} data={item} head="Headrest Executive Mesh Office Chairset" img="Features-4.png" price="৳1000" />
+        // <ProductCard key={item.id} data={item} head="Headrest Executive Mesh Office Chairset" img="Features-5.png" price="৳10500" />
+        // <ProductCard key={item.id} data={item} head="Women fashion dress set" img="Features-6.png" price="৳1000" />
+        // <ProductCard key={item.id} data={item} head="Headrest Executive Mesh Office Chairset" img="Features-7.png" price="৳5000" />
+        // <ProductCard key={item.id} data={item} head="Women black dress and red hat collectio0" img="Features-8.png" price="৳1000" />
+        // <ProductCard key={item.id} data={item} head="Headrest Executive Mesh Office Chairset" img="Features-9.png" price="৳10500" />
+        // <ProductCard key={item.id} data={item} head="Women fashion dress set" img="Features-10.png" price="৳1000" />
+        // <ProductCard key={item.id} data={item} head="Headrest Executive Mesh Office Chairset" img="Features-11.png" price="৳5000" />
+        // <ProductCard key={item.id} data={item} head="Women black dress and red hat collectio0" img="Features-12.png" price="৳1000" />
+        // <ProductCard key={item.id} data={item} head="Headrest Executive Mesh Office Chairset" img="Features-13.png" price="৳10500" />
+        // <ProductCard key={item.id} data={item} head="Women fashion dress set" img="Features-14.png" price="৳1000" />
+        // <ProductCard key={item.id} data={item} head="Headrest Executive Mesh Office Chairset" img="Features-15.png" price="৳5000" />
+                )
+              )
+                )
+               }
           </div>
         </div>
       </div>
