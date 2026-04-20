@@ -4,7 +4,7 @@ import ProductCard from '../components/UI/ProductCard'
 import { data, Link } from 'react-router'
 const Shop = () => {
     const[productlist,Setproductlist]=useState([]);
-    const[loading,Setloading]=useState(true);
+    const { data, isLoading, error: apiError } = useGetProductsQuery();
     const[error,Seterror]=useState("");
 
 
